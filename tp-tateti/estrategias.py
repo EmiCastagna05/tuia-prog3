@@ -68,10 +68,11 @@ def estrategia_minimax(tateti: Tateti, estado: List[List[str]]) -> Tuple[int, in
         if tateti.jugador(estado) == JUGADOR_MAX:
             sucesor = {accion: MinMaxMin(tateti, tateti.resultado(estado, accion))
                         for accion in tateti.acciones(estado)}
-            return max(sucesor, key=sucesor.get())
+            return max(sucesor, key=sucesor.get)
 
         if tateti.jugador(estado) == JUGADOR_MIN:
             sucesor = {accion: MinMaxMax(tateti, tateti.resultado(estado, accion))
                         for accion in tateti.acciones(estado)}
-            return min(sucesor, key=sucesor.get())
+            return min(sucesor, key=sucesor.get)
 
+    return MinMax(tateti, estado)
